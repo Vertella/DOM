@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <input type='text' id="user_input" />
+        <input type='button' value='Lägg till' id='add' />
+        <ul id='list_item'></ul>
+
+        <script type="text/javascript">
+            document.getElementById("add").onclick  = function() {
+
+                var node = document.createElement("li");
+                var text = document.getElementById("user_input").value; 
+                var textnode=document.createTextNode(text);
+                node.appendChild(textnode);
+
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Ta bort";
+                deleteButton.style.marginLeft = "10px";  // Add some space between text and button
+
+                deleteButton.onclick = function() {
+                    this.parentElement.remove();
+                };
+
+                node.appendChild(deleteButton);
+
+                document.getElementById("list_item").appendChild(node);
+                document.getElementById("user_input").value = "";
+
+            }
+
+        </script>
+        
+    </body>
+</html>
